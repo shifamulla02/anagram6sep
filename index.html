@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title>anagram checker app by shifa</title>
+		<style>
+			*{font-size: 40px; font-family: Times New Roman;}
+			body{background-color: thistle;}
+			h1{background-color: white; color:black; width:50%;border-radius:30px;}
+			input[type=submit]{background-color:white;color:black;}
+			input[type=text]{background-color:whites;color:black;}
+		</style>
+	</head>
+
+	<body>
+		<center> 
+		<h1>~ ANAGRAM CHECKER ~</h1>
+
+		<form onsubmit= "check()">
+			<input type="text" id="string1" placeholder="enter first string" />
+			<br/><br/> 
+			<input type="text" id="string2" placeholder="enter second string" />
+			<br/><br/>
+
+			<input type="submit" value="check"/>
+			<h2 id="msg" />
+		</form>
+
+		<script>
+			function check()
+			{
+				event.preventDefault();
+				let string1=document.getElementById("string1");
+				let string2=document.getElementById("string2");
+				let msg=document.getElementById("msg");
+				
+				if(string1.value==="")
+				{
+					alert("Enter the first string!");
+					msg.innerHTML="";
+					string1.focus();
+					return;
+				}
+
+				if(string2.value==="")
+				{
+					alert("Enter the second string!");
+					msg.innerHTML="";
+					string2.focus();
+					return;
+				}
+				
+				let s1= string1.value;
+				let s2= string2.value;
+
+				if (mysort(s1)===mysort(s2))
+				{
+					msg.innerHTML= s1 + " and " + s2 + " are Anagrams."
+				}
+				else
+				{
+					msg.innerHTML= s1 + " and " + s2 + " are not Anagrams."
+				}
+			}
+
+			function mysort(s)
+			{
+				return s.split("").sort().join("");
+			}
+
+		</script>
+		</center>
+	</body>
+</html>
